@@ -1,14 +1,14 @@
 author: mamuesp
-description: A bunch of basic functions you need everywhere ...
+description: A bunch of basic functions related to color handling you need everywhere ...
 version: 0.1
 libs_version: ${mos.version}
 modules_version: ${mos.version}
 mongoose_os_version: ${mos.version}
 
 config_schema:
-  - ["common_tools", "o", {title: "Tool collection settings"}]
-  - ["common_tools.enable", "b", true, {title: "Set tools active when initializing the library"}]
-  - ["common_tools.data_path", "s", "", {title: "File system where eventually needed data is stored"}]
+  - ["color_tools", "o", {title: "Tool collection settings"}]
+  - ["color_tools.enable", "b", true, {title: "Set tools active when initializing the library"}]
+  - ["color_tools.data_path", "s", "", {title: "File system where eventually needed data is stored"}]
 
 sources:
   - src
@@ -28,5 +28,6 @@ tags:
 libs:
   - origin: https://github.com/mongoose-os-libs/vfs-common
   - origin: https://github.com/mongoose-os-libs/core
+  - origin: /Develop/HeyDo/heydo-mqtt/Mongoose-OS/heydo-libs/common-tools
 
 manifest_version: 2017-09-29
