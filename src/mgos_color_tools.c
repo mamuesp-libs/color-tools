@@ -50,6 +50,20 @@ tools_rgb_array *tools_config_get_color_arr(const char* data, const char separat
     return result;
 }
 
+tools_rgb_array* tools_create_rgb_array(uint32_t size)
+{
+    tools_rgb_array* result = calloc(1, sizeof(tools_rgb_array));
+    result->data = calloc(size, sizeof(tools_rgb_data));
+    result->len = size;
+    return result;
+}
+
+void tools_free_rgb_arr(tools_rgb_array* arr)
+{
+    free(arr->data);
+    free(arr);
+}
+
 typedef struct {
     double r; // a fraction between 0 and 1
     double g; // a fraction between 0 and 1

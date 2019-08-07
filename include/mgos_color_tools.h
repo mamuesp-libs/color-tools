@@ -49,6 +49,10 @@ typedef struct {
     uint32_t len;
 } tools_rgb_array;
 
+tools_rgb_array* tools_create_rgb_array(uint32_t size);
+void tools_free_rgb_arr(tools_rgb_array* arr);
+tools_rgb_array *tools_config_get_color_arr(const char* data, const char separator);
+
 void tools_rgb_to_hsv(tools_rgb_data in, double* h, double* s, double* v);
 tools_rgb_data tools_hsv_to_rgb(double h, double s, double v);
 
