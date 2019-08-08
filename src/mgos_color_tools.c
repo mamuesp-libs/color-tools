@@ -39,7 +39,7 @@ tools_rgb_array *tools_config_get_color_arr(const char* data, const char separat
     tools_rgb_array *result = calloc(1, sizeof(tools_rgb_array));
     result->len = tools_str_split(data, separator, &str_colors);
     result->data = result->len > 0 ? calloc(result->len, sizeof(tools_rgb_data)) : NULL;
-    for (int i = 0; i < result->len; i++) {
+    for (uint32_t i = 0; i < result->len; i++) {
         char** str_rgb;
         if (tools_str_split(str_colors[i], ',', &str_rgb) == 3) {
             tools_set_color(&result->data[i], atoi(str_rgb[0]), atoi(str_rgb[1]), atoi(str_rgb[2]), 1);
@@ -305,6 +305,7 @@ tools_rgb_data tools_get_random_color_fade(tools_rgb_data start, tools_rgb_data*
     tools_rgb_data result = tools_hsv_to_rgb(h, s, v);
     LOG(LL_DEBUG, ("Generated random color with R: 0x%02X, G: 0x%02X, B: 0x%02X", result.r, result.g, result.b));
 
+    (void)min_dist;
     return result;
 }
 
